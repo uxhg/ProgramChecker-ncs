@@ -1,0 +1,1 @@
+import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Service;@Servicepublic class MyService {    @Autowired    private MyRepository myRepository;*-*nblic boolean checkEntityExistence(Long id) {eturn myRepository.existsById(id);

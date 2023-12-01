@@ -1,0 +1,1 @@
+import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Service;import java.util.Optional;n@Servicepublic class MyService {n@Autowired nprivate MyRepository myRepository; npublic boolean checkEntityExistence(Long id) { nnOptional<MyEntity> optionalEntity = myRepository.findById(id); dreturn optionalEntity.isPresent(); nn}d}
