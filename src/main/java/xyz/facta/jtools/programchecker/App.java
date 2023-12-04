@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class App {
@@ -38,6 +39,7 @@ public class App {
                 tryParseFile(inputFile);
             } else if (inputFile.isDirectory()) {
                 List<File> javaFiles = listJavaFiles(inputFile);
+                javaFiles.sort(Comparator.comparing(File::getName));
                 for (File javaFile : javaFiles) {
                     printFilePath(javaFile);
                     tryParseFile(javaFile);
