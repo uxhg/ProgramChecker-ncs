@@ -1,0 +1,35 @@
+* ProgramChecker-ncs
+
+A simple demonstration to use Java Parser to check whether a Java file or a directory of Java files are syntactically valid or not.
+
+
+** Build and Usage
++ Requirements: Please use Java 11 or newer versions. It should work with older versions, if you want, please edit POM and try yourself.
+  
++ Build a jar with dependencies as below.
+#+begin_src sh
+mvn compile assembly:single
+#+end_src
+
++ Command line options:
+#+begin_src 
+usage: ProgramChecker
+ -i,--input <arg>      path of input source files
+ -json,--json-output   Enable JSON output
+ -r,--recursive        Enable recursive processing
+#+end_src
+
++ Example usage:
+#+begin_src sh
+# check a file
+java -Dlog4j2.level=info -jar target/ProgramChecker-ncs-1.0-SNAPSHOT-jar-with-dependencies.jar -i test-data/temp-07/1.java
+# check a directory 
+java -Dlog4j2.level=info -jar target/ProgramChecker-ncs-1.0-SNAPSHOT-jar-with-dependencies.jar -i test-data/temp-07 -r
+#+end_src
+
++ If you omit the =-r= option, it will not go deep into the subdirectories recursively.
++ If you want JSON output, append =-json= option. If you do not need detailed logs, change logging level to WARN or ERROR or just omit the =-Dlog4j2.level= option.
+
+
+** Credits
++ This tool serves as a very simple example of utilizing the [[https://javaparser.org/][JavaParser]] library.
